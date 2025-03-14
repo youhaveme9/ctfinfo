@@ -53,7 +53,7 @@ class _EventScreenState extends State<EventScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 28),
               child: CustomText(
                 txtTitle: 'All CTFs',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                style: Theme.of(context).textTheme.headlineLarge,
               ),
             ),
             const SizedBox(height: 10),

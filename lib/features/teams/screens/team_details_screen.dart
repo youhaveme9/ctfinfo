@@ -1,5 +1,6 @@
 import 'package:ctfinfo/constants/string_constants.dart';
 import 'package:ctfinfo/features/teams/provider/team_provider.dart';
+import 'package:ctfinfo/style/pallet.dart';
 import 'package:ctfinfo/widgets/custom_scaffold.dart';
 import 'package:ctfinfo/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
@@ -69,12 +70,13 @@ class _TeamDetailsScreenState extends State<TeamDetailsScreen> {
                   },
                   child: const Icon(
                     Icons.arrow_back_ios,
+                    color: Pallet.greenColour,
                   ),
                 ),
                 const SizedBox(width: 10.0),
-                const CustomText(
+                CustomText(
                   txtTitle: "Team Detail",
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.headlineLarge,
                 ),
               ],
             ),
@@ -99,27 +101,22 @@ class _TeamDetailsScreenState extends State<TeamDetailsScreen> {
                   CustomText(
                     txtTitle: value.teamDetail.name ?? "Team Name",
                     textOverflow: TextOverflow.visible,
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blueAccent,
-                    ),
+                    style: Theme.of(context).textTheme.headlineMedium,
                   ),
-                  //teamid
+                  //teamId
                   const SizedBox(
                     height: 20.0,
                   ),
                   Row(
                     children: [
-                      const CustomText(
+                      CustomText(
                         txtTitle: "${StringConstants.teamId} :",
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       const SizedBox(width: 10),
                       CustomText(
                         txtTitle: value.teamDetail.id.toString(),
-                        style: TextStyle(fontSize: 16),
+                        style: Theme.of(context).textTheme.titleLarge,
                       ),
                     ],
                   ),
@@ -129,20 +126,19 @@ class _TeamDetailsScreenState extends State<TeamDetailsScreen> {
                   ),
                   Row(
                     children: [
-                      const CustomText(
+                      CustomText(
                         txtTitle: "${StringConstants.country} :",
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       const SizedBox(width: 10),
                       value.teamDetail.country == ""
                           ? CustomText(
                               txtTitle: StringConstants.notAvailable,
-                              style: TextStyle(fontSize: 16),
+                              style: Theme.of(context).textTheme.titleLarge,
                             )
                           : CustomText(
                               txtTitle: value.teamDetail.country,
-                              style: TextStyle(fontSize: 16),
+                              style: Theme.of(context).textTheme.titleLarge,
                             ),
                     ],
                   ),
@@ -152,20 +148,19 @@ class _TeamDetailsScreenState extends State<TeamDetailsScreen> {
                   ),
                   Row(
                     children: [
-                      const CustomText(
+                      CustomText(
                         txtTitle: "${StringConstants.ratingPlace} :",
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       const SizedBox(width: 10),
                       rating2024['rating_place'] != null
                           ? CustomText(
                               txtTitle: rating2024['rating_place'].toString(),
-                              style: TextStyle(fontSize: 16),
+                              style: Theme.of(context).textTheme.titleLarge,
                             )
                           : CustomText(
                               txtTitle: StringConstants.notAvailable,
-                              style: TextStyle(fontSize: 16),
+                              style: Theme.of(context).textTheme.titleLarge,
                             ),
                     ],
                   ),
@@ -175,21 +170,20 @@ class _TeamDetailsScreenState extends State<TeamDetailsScreen> {
                   ),
                   Row(
                     children: [
-                      const CustomText(
+                      CustomText(
                         txtTitle: "${StringConstants.organizerPoints} :",
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       const SizedBox(width: 10),
                       rating2024['organizer_points'] != null
                           ? CustomText(
                               txtTitle:
                                   rating2024['organizer_points'].toString(),
-                              style: TextStyle(fontSize: 16),
+                              style: Theme.of(context).textTheme.titleLarge,
                             )
                           : CustomText(
                               txtTitle: StringConstants.notAvailable,
-                              style: TextStyle(fontSize: 16),
+                              style: Theme.of(context).textTheme.titleLarge,
                             ),
                     ],
                   ),
@@ -199,20 +193,19 @@ class _TeamDetailsScreenState extends State<TeamDetailsScreen> {
                   ),
                   Row(
                     children: [
-                      const CustomText(
+                      CustomText(
                         txtTitle: "${StringConstants.ratingPoints} :",
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       const SizedBox(width: 10),
                       rating2024['rating_points'] != null
                           ? CustomText(
                               txtTitle: rating2024['rating_points'].toString(),
-                              style: TextStyle(fontSize: 16),
+                              style: Theme.of(context).textTheme.titleLarge,
                             )
                           : CustomText(
                               txtTitle: StringConstants.notAvailable,
-                              style: TextStyle(fontSize: 16),
+                              style: Theme.of(context).textTheme.titleLarge,
                             ),
                     ],
                   ),
@@ -222,20 +215,19 @@ class _TeamDetailsScreenState extends State<TeamDetailsScreen> {
                   ),
                   Row(
                     children: [
-                      const CustomText(
+                      CustomText(
                         txtTitle: "${StringConstants.countryPlace} :",
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       const SizedBox(width: 10),
                       rating2024['country_place'] != null
                           ? CustomText(
                               txtTitle: rating2024['country_place'].toString(),
-                              style: TextStyle(fontSize: 16),
+                              style: Theme.of(context).textTheme.titleLarge,
                             )
                           : CustomText(
                               txtTitle: StringConstants.notAvailable,
-                              style: TextStyle(fontSize: 16),
+                              style: Theme.of(context).textTheme.titleLarge,
                             ),
                     ],
                   ),
