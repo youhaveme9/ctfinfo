@@ -8,6 +8,7 @@ class CustomText extends StatelessWidget {
   final int? maxLine;
   final TextOverflow? textOverflow;
   final void Function()? onPressed;
+  final bool? softWrap;
 
   const CustomText({
     super.key,
@@ -18,6 +19,7 @@ class CustomText extends StatelessWidget {
     this.textOverflow,
     this.onPressed,
     this.btnTextAlignment,
+    this.softWrap = true,
   });
 
   @override
@@ -25,10 +27,10 @@ class CustomText extends StatelessWidget {
     final Widget textWidget = Text(
       txtTitle ?? "",
       style: style,
-      softWrap: true,
+      softWrap: softWrap,
       textAlign: align,
       maxLines: maxLine,
-      overflow: textOverflow,
+      overflow: style?.overflow ?? TextOverflow.clip,
     );
     return onPressed == null
         ? textWidget

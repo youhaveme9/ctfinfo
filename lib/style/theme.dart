@@ -28,6 +28,7 @@ class CustomTheme {
             fontSize: 17,
             fontWeight: FontWeight.w500,
             fontFamily: "Tomorrow",
+            overflow: TextOverflow.clip,
           ),
           titleMedium: const TextStyle(
             //EG: buttons
@@ -35,6 +36,7 @@ class CustomTheme {
             fontSize: 17,
             fontWeight: FontWeight.bold,
             fontFamily: "Tomorrow",
+            overflow: TextOverflow.clip,
           ),
           bodyMedium: const TextStyle(
             //EG: "team id", "average weight"
@@ -42,6 +44,7 @@ class CustomTheme {
             color: Pallet.greenColour,
             fontWeight: FontWeight.bold,
             fontFamily: "Tomorrow",
+            overflow: TextOverflow.clip,
           ),
           headlineLarge: const TextStyle(
             //for headings
@@ -49,6 +52,7 @@ class CustomTheme {
             color: Pallet.greenColour,
             fontWeight: FontWeight.normal,
             fontFamily: "Tomorrow",
+            overflow: TextOverflow.clip,
           ),
           headlineMedium: const TextStyle(
             //for evens/team details/name
@@ -56,6 +60,7 @@ class CustomTheme {
             color: Pallet.greenColour,
             fontWeight: FontWeight.bold,
             fontFamily: "Tomorrow",
+            overflow: TextOverflow.clip,
           ),
           headlineSmall: const TextStyle(
             //for evens/team details/name
@@ -63,12 +68,14 @@ class CustomTheme {
             color: Pallet.greenColour,
             fontWeight: FontWeight.bold,
             fontFamily: "Tomorrow",
+            overflow: TextOverflow.clip,
           ),
           bodyLarge: const TextStyle(
             //for evens/team details/name
             fontSize: 16,
             color: Pallet.greenColour,
             fontFamily: "Tomorrow",
+            overflow: TextOverflow.clip,
           ),
         ),
         inputDecorationTheme: InputDecorationTheme(
