@@ -8,6 +8,7 @@ import 'package:ctfinfo/utils/validator.dart';
 import 'package:ctfinfo/widgets/custom_button.dart';
 import 'package:ctfinfo/widgets/custom_scaffold.dart';
 import 'package:ctfinfo/widgets/custom_text.dart';
+import 'package:ctfinfo/widgets/information_field.dart';
 import 'package:flutter/material.dart';
 import 'package:footer/footer.dart';
 import 'package:provider/provider.dart';
@@ -110,165 +111,112 @@ class _YourTeamScreenState extends State<YourTeamScreen> {
   SafeArea _buildUI(TeamProvider value) {
     var rating2024 = value.data2024;
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: CustomText(
-                txtTitle: 'Your Team',
-                style: Theme.of(context).textTheme.headlineLarge,
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: CustomText(
+                  txtTitle: 'Your Team',
+                  style: Theme.of(context).textTheme.headlineLarge,
+                ),
               ),
-            ),
-            const SizedBox(height: 12),
-            SizedBox(
-              width: double.infinity,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  CircleAvatar(
-                    //logo
-                    backgroundImage: (teamId != null &&
-                            value.teamDetail.logo != null)
-                        ? NetworkImage(value.teamDetail.logo!)
-                        : const NetworkImage(
-                            "https://images.ctfassets.net/aoyx73g9h2pg/3H8sLBKCH7xIph1YZmjFvd/8292d73649a27a4eb65724fa1df629f7/10684-1024x575.jpg?w=3840&q=100"),
-                    radius: 100.0,
-                  ),
-                  const SizedBox(height: 20.0),
-                  CustomText(
-                    txtTitle: (teamId != null && value.teamDetail.name != null)
-                        ? value.teamDetail.name!
-                        : "Team Name",
-                    textOverflow: TextOverflow.visible,
-                    style: Theme.of(context).textTheme.headlineMedium,
-                  ),
-                  const SizedBox(height: 20.0),
-                  //teamId
-                  Row(
-                    children: [
-                      CustomText(
-                        txtTitle: "${StringConstants.teamId} :",
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                      const SizedBox(width: 10),
-                      CustomText(
-                        txtTitle: teamId ?? StringConstants.notAvailable,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10.0),
-                  //country
-                  Row(
-                    children: [
-                      CustomText(
-                        txtTitle: "${StringConstants.country} :",
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                      const SizedBox(width: 10),
-                      CustomText(
-                        txtTitle: (teamId != null &&
-                                value.teamDetail.country != null &&
-                                value.teamDetail.country != "")
-                            ? value.teamDetail.country!
-                            : StringConstants.notAvailable,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10.0),
-                  //rating place
-                  Row(
-                    children: [
-                      CustomText(
-                        txtTitle: "${StringConstants.ratingPlace} :",
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                      const SizedBox(width: 10),
-                      CustomText(
-                        txtTitle: (teamId != null &&
-                                rating2024 != null &&
-                                rating2024['rating_place'] != null)
-                            ? rating2024['rating_place'].toString()
-                            : StringConstants.notAvailable,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10.0),
-                  //organizer points
-                  Row(
-                    children: [
-                      CustomText(
-                        txtTitle: "${StringConstants.organizerPoints} :",
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                      const SizedBox(width: 10),
-                      CustomText(
-                        txtTitle: (teamId != null &&
-                                rating2024 != null &&
-                                rating2024['organizer_points'] != null)
-                            ? rating2024['organizer_points'].toString()
-                            : StringConstants.notAvailable,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10.0),
-                  //rating points
-                  Row(
-                    children: [
-                      CustomText(
-                        txtTitle: "${StringConstants.ratingPoints} :",
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                      const SizedBox(width: 10),
-                      CustomText(
-                        txtTitle: (teamId != null &&
-                                rating2024 != null &&
-                                rating2024['rating_points'] != null)
-                            ? rating2024['rating_points'].toString()
-                            : StringConstants.notAvailable,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10.0),
-                  //country place
-                  Row(
-                    children: [
-                      CustomText(
-                        txtTitle: "${StringConstants.countryPlace} :",
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                      const SizedBox(width: 10),
-                      CustomText(
-                        txtTitle: (teamId != null &&
-                                rating2024 != null &&
-                                rating2024['country_place'] != null)
-                            ? rating2024['country_place'].toString()
-                            : StringConstants.notAvailable,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                    ],
-                  ),
-                ],
+              const SizedBox(
+                height: 10.0,
               ),
-            ),
-            const SizedBox(
-              height: 100,
-            ),
-            Footer(
-              backgroundColor: Colors.transparent,
-              child: Center(
-                child: _buttons(),
+              Image.asset(ImageConstants.lines),
+              const SizedBox(height: 7.0),
+              SizedBox(
+                width: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Image.asset(
+                          ImageConstants.fingerprint,
+                          height: 360.0,
+                          fit: BoxFit.cover,
+                        ),
+                        CircleAvatar(
+                          backgroundImage:
+                              (teamId != null && value.teamDetail.logo != null)
+                                  ? NetworkImage(value.teamDetail.logo!)
+                                  : NetworkImage(ImageConstants.defaultLogo),
+                          radius: 80.0,
+                        )
+                      ],
+                    ),
+                    CustomText(
+                      txtTitle:
+                          (teamId != null && value.teamDetail.name != null)
+                              ? value.teamDetail.name!
+                              : "Team Name",
+                      textOverflow: TextOverflow.visible,
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
+                    const SizedBox(height: 20.0),
+                    //teamId
+                    InformationField(
+                        value: teamId ?? StringConstants.notAvailable),
+                    const SizedBox(height: 10.0),
+                    //country
+                    (teamId != null &&
+                            value.teamDetail.country != null &&
+                            value.teamDetail.country != "")
+                        ? InformationField(value: value.teamDetail.country!)
+                        : InformationField(value: StringConstants.notAvailable),
+                    const SizedBox(height: 10.0),
+                    //rating place
+                    (teamId != null &&
+                            rating2024 != null &&
+                            rating2024['rating_place'] != null)
+                        ? InformationField(
+                            value: rating2024['rating_place'].toString())
+                        : InformationField(value: StringConstants.notAvailable),
+                    const SizedBox(height: 10.0),
+                    //organizer points
+                    (teamId != null &&
+                            rating2024 != null &&
+                            rating2024['organizer_points'] != null)
+                        ? InformationField(
+                            value: rating2024['organizer_points'].toString())
+                        : InformationField(value: StringConstants.notAvailable),
+                    const SizedBox(height: 10.0),
+                    //rating points
+                    (teamId != null &&
+                            rating2024 != null &&
+                            rating2024['rating_points'] != null)
+                        ? InformationField(
+                            value: rating2024['rating_points'].toString())
+                        : InformationField(value: StringConstants.notAvailable),
+                    const SizedBox(height: 10.0),
+                    //country place
+                    (teamId != null &&
+                            rating2024 != null &&
+                            rating2024['country_place'] != null)
+                        ? InformationField(
+                            value: rating2024['country_place'].toString())
+                        : InformationField(value: StringConstants.notAvailable),
+                  ],
+                ),
               ),
-            )
-          ],
+              const SizedBox(
+                height: 100,
+              ),
+              Footer(
+                backgroundColor: Colors.transparent,
+                child: Center(
+                  child: _buttons(),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -311,11 +259,14 @@ class _YourTeamScreenState extends State<YourTeamScreen> {
                 TextFormField(
                   controller: _teamIdController,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(color: Pallet.greenColour, width: 2.0),
-                    ),
-                  ).copyWith(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Pallet.greenColour, width: 2.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Pallet.greenColour, width: 2.0),
+                      )).copyWith(
                     hintText: 'Enter Your CTF TeamID',
                     hintStyle: TextStyle(
                       fontSize: 20.0,
