@@ -1,7 +1,7 @@
 import 'package:ctfinfo/features/teams/provider/team_provider.dart';
 import 'package:ctfinfo/features/teams/widgets/team_card.dart';
+import 'package:ctfinfo/widgets/custom_heading.dart';
 import 'package:ctfinfo/widgets/custom_scaffold.dart';
-import 'package:ctfinfo/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -46,15 +46,7 @@ class _TeamListScreenState extends State<TeamListScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 28),
-              child: CustomText(
-                txtTitle: 'Top Teams',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-              ),
-            ),
-            const SizedBox(height: 10),
+            CustomHeading(title: "Top Teams"),
             ListView.builder(
               physics: ScrollPhysics(),
               shrinkWrap: true,

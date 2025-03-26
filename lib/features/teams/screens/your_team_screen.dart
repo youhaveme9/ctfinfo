@@ -6,6 +6,7 @@ import 'package:ctfinfo/utils/shared_preferences.dart';
 import 'package:ctfinfo/utils/toast_utils.dart';
 import 'package:ctfinfo/utils/validator.dart';
 import 'package:ctfinfo/widgets/custom_button.dart';
+import 'package:ctfinfo/widgets/custom_heading.dart';
 import 'package:ctfinfo/widgets/custom_scaffold.dart';
 import 'package:ctfinfo/widgets/custom_text.dart';
 import 'package:ctfinfo/widgets/information_field.dart';
@@ -115,19 +116,7 @@ class _YourTeamScreenState extends State<YourTeamScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: CustomText(
-                txtTitle: 'Your Team',
-                style: Theme.of(context).textTheme.headlineLarge,
-              ),
-            ),
-            const SizedBox(
-              height: 10.0,
-            ),
-            Image.asset(ImageConstants.lines),
-            const SizedBox(height: 7.0),
+            CustomHeading(title: "Your Team"),
             SizedBox(
               width: double.infinity,
               child: Column(

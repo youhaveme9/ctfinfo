@@ -7,68 +7,69 @@ class ResourceCard extends StatelessWidget {
   final String description;
   final String url;
 
-  const ResourceCard(
-      {super.key,
-      required this.title,
-      required this.description,
-      required this.url});
+  const ResourceCard({
+    super.key,
+    required this.title,
+    required this.description,
+    required this.url,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 10),
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.grey,
-            offset: Offset(0.0, 1.0),
-            blurRadius: 6.0,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 8),
+      child: InkWell(
+        onTap: () async {
+          if (!await launchUrl(Uri.parse(url))) {
+            throw Exception('Could not launch');
+          }
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Theme.of(context).primaryColor,
+              width: 2,
+            ),
+            borderRadius: BorderRadius.circular(30),
           ),
-        ],
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            child: Row(
               children: [
-                CustomText(
-                  txtTitle: title,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomText(
+                        txtTitle: title.substring(
+                            0, title.length > 20 ? 20 : title.length),
+                        style: Theme.of(context).textTheme.headlineSmall,
+                        textOverflow: TextOverflow.ellipsis,
+                      ),
+                      const SizedBox(height: 5),
+                      CustomText(
+                        txtTitle: description,
+                        style: Theme.of(context).textTheme.bodyLarge,
+                        softWrap: true,
+                        textOverflow: TextOverflow.clip,
+                      ),
+                    ],
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  description,
-                  style: const TextStyle(
-                    fontSize: 16,
+                CircleAvatar(
+                  backgroundColor:
+                      Theme.of(context).primaryColor.withValues(alpha: 0.2),
+                  radius: 35,
+                  child: Icon(
+                    Icons.language,
+                    size: 35,
+                    color: Theme.of(context).primaryColor,
                   ),
-                  softWrap: true,
-                  overflow: TextOverflow.clip,
                 ),
               ],
             ),
           ),
-          InkWell(
-            onTap: () async {
-              if (!await launchUrl(Uri.parse(url))) {
-                throw Exception('Could not launch');
-              }
-            },
-            child: const Icon(
-              Icons.language,
-              size: 30,
-            ),
-          )
-        ],
+        ),
       ),
     );
   }

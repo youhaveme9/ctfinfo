@@ -1,4 +1,3 @@
-import 'package:ctfinfo/style/pallet.dart';
 import 'package:ctfinfo/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
@@ -42,24 +41,24 @@ class InformationField extends StatelessWidget {
             ),
           ),
         ),
-        Positioned(
-          top: -22,
-          left: 24,
-          child: Container(
-            padding: EdgeInsets.fromLTRB(2, 18, 2, 4),
-            decoration: BoxDecoration(
-              color: Pallet.blackColour,
-            ),
-            child: CustomText(
-              txtTitle: "Information",
-              style: TextStyle(
-                color: Theme.of(context).primaryColor,
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
+        // Positioned(
+        //   top: -10,
+        //   left: 24,
+        //   child: Container(
+        //     padding: EdgeInsets.fromLTRB(2, 18, 2, 4),
+        //     decoration: BoxDecoration(
+        //       color: Pallet.blackColour,
+        //     ),
+        //     child: CustomText(
+        //       txtTitle: "Information",
+        //       style: TextStyle(
+        //         color: Theme.of(context).primaryColor,
+        //         fontSize: 14,
+        //         fontWeight: FontWeight.bold,
+        //       ),
+        //     ),
+        //   ),
+        // ),
       ],
     );
   }

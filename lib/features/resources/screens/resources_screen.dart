@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:ctfinfo/features/resources/widgets/resource_card.dart';
+import 'package:ctfinfo/widgets/custom_heading.dart';
 import 'package:ctfinfo/widgets/custom_scaffold.dart';
-import 'package:ctfinfo/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -41,27 +41,14 @@ class _ResourcesScreenState extends State<ResourcesScreen> {
   CustomScaffold _buildUI() {
     return CustomScaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  height: 30.0,
-                ),
-                Row(
-                  children: [
-                    const SizedBox(width: 10.0),
-                    const CustomText(
-                      txtTitle: "Resources",
-                      style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                ListView.builder(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomHeading(title: "Resources"),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListView.builder(
                   physics: ScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: _resourceData.length,
@@ -73,8 +60,8 @@ class _ResourcesScreenState extends State<ResourcesScreen> {
                     );
                   },
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
