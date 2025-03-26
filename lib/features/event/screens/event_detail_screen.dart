@@ -92,7 +92,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                     alignment: Alignment.center,
                     children: [
                       Image.asset(
-                        ImageConstants.fingerprint,
+                        ImageConstants.avatarBorder,
                         height: 360.0,
                         fit: BoxFit.cover,
                       ),
@@ -111,6 +111,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                     txtTitle: value.eventDetail.title ?? "Event Name",
                     textOverflow: TextOverflow.visible,
                     style: Theme.of(context).textTheme.headlineMedium,
+                    align: TextAlign.center,
                   ),
                 ],
               ),

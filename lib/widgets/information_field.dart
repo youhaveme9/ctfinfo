@@ -22,15 +22,13 @@ class InformationField extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: Flexible(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: CustomText(
-              txtTitle: value,
-              style: Theme.of(context).textTheme.bodyMedium,
-              softWrap: true,
-              textOverflow: TextOverflow.clip,
-            ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: CustomText(
+            txtTitle: value,
+            style: Theme.of(context).textTheme.bodyMedium,
+            softWrap: true,
+            textOverflow: TextOverflow.clip,
           ),
         ),
       ),
